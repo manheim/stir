@@ -6,7 +6,7 @@ module CoreExt
         return self if match.nil?
         key = $1.tr('{}', '').to_sym
         raise KeyError.new("key{#{key}} not found") unless h.has_key?(key)
-        CGI::escape(h[key])
+        CGI::escape(h[key].to_s)
       end
     end
   end
